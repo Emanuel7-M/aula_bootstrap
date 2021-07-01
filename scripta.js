@@ -1,4 +1,4 @@
-window.alert("aa")
+
 let canvas = document.getElementById("snake");
 let context = canvas.getContext("2d");
 let box = 32;
@@ -9,12 +9,12 @@ snake[0] = {
 }
 let direction = "right";
 let food = {
-    x:Math.floor(Math.ramdom() * 15 + 1) * box,
-    y: Math.floor(Math.ramdom() * 15 + 1) * box,
+    x: Math.floor(Math.random() * 15 + 1) * box,
+    y: Math.floor(Math.random() * 15 + 1) * box
 }
 function criarBG() {
     context.fillStyle = "lightgreen"
-    context.fillRect = (0,0,16 * box, 16* box);
+    context.fillRect(0,0,16 * box, 16* box);
 }
 function criarCobrinha() {
    for(i=0; i < snake.length; i++){
@@ -33,15 +33,15 @@ function update (event) {
     if(event.keyCode == 39 && direction != "left") direction = "right";
     if(event.keyCode == 40 && direction != "up") direction = "down"
 }
-alert ("ess")
-    function iniciarJogo() {
+
+function iniciarJogo() {
         
         criarBG();
         criarCobrinha();
 
         let snakeX = snake[0].x;
         let snakeY = snake[0].y;
-         for(i = 1: 1 < snake.length; i++){
+         for(i = 1; 1 < snake.length; i++){
              if(snake[0].x == snake[i].x && snake[0].y == snake[i].y){
                  clearInterval(jogo);
                  alert ('Gamer Over')
@@ -62,9 +62,10 @@ alert ("ess")
     {
         snake.pop()
     }
-    else{food.x:Math.floor(Math.ramdom() * 15 + 1) * box,
-        food.y: Math.floor(Math.ramdom() * 15 + 1) * box
-
+    else{
+        
+        food.x = Math.floor(Math.random() * 15 + 1) * box
+        food.y = Math.floor(Math.random() * 15 + 1) * box
     }
     snake.pop(); 
     let newHead = {
@@ -72,5 +73,5 @@ alert ("ess")
         y:snakeY
     }
     snake.unshift(newHead);
-      } 
+    } 
       let jogo = setInterval(iniciarJogo, 100);
